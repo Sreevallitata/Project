@@ -1,0 +1,29 @@
+
+.active{
+  font-size: large;
+  font-family: "Arial Rounded MT Bold";
+}
+
+.vertical-menu {
+  width: 200px;
+  border-radius: 50%;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  font-family: cursive;
+  font-size: medium;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+text-decoration: underline;
+}
+
+.vertical-menu a.active {
+  background-color: blue;
+  color: white;
+}

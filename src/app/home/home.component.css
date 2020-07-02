@@ -1,0 +1,19 @@
+.parent-container {
+  position: relative;
+  height:100%;
+  width: 100%;
+}
+
+.child-container {
+  color: blue;
+  text-align: center;
+  position: center;
+
+}
+.desc {
+  text-align: center;
+  text-transform: capitalize;
+  font-family: cursive;
+  font-size: 17px;
+}
+
