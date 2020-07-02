@@ -1,0 +1,46 @@
+<div class="image2">
+
+  <div class="parent-container">
+    <div class="child-container">
+      <h2><b><strong>Know your "MACROS"!!
+      </strong></b></h2><br>
+
+      <div class="form-group">
+        <p><strong>Enter the recipe here and know the macro values</strong></p>
+        <a href="home.component.html">Back</a>
+
+        <form>
+          <div class="form-group">
+            <div class="form-group col-lg-6 col-lg-offset-3 input-group">
+              <input #recipe class="form-control" placeholder="Recipe name" type="text">
+
+            </div>
+            <br>
+            <button (click)="getMacroInfo()" class="btn btn-primary col-lg-2 col-lg-offset-5 gobtn" type="button">
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+
+
+      <br><br>
+      <div class="container">
+        <div class="col">
+          <div class="panel panel-default col">
+            <div class="panel-heading"><b>Macros</b></div>
+            <div class="panel-body">                                      <!--for each item in the list of nutrients-->
+              <div *ngFor="let nutrient of macroList[0]?.nutrients" class="list-group-item clearfix">
+                <p>                                                       <!--check if it is a macro. If so, output-->
+                  <span *ngIf="nutrient?.nutrientId == 1003">Protein: {{nutrient?.value}}{{nutrient?.unitName}}</span>
+                  <span *ngIf="nutrient?.nutrientId == 1004">Fats: {{nutrient?.value}}{{nutrient?.unitName}}</span>
+                  <span *ngIf="nutrient?.nutrientId == 1005">Carbs: {{nutrient?.value}}{{nutrient?.unitName}}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

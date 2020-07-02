@@ -1,0 +1,93 @@
+<div class="image2">
+
+  <div class="parent-container">
+    <div class="child-container">
+      <form>
+        <div class="form-group">
+          <h3><strong>Choose your Protein</strong></h3>
+
+          <form action="/action_page.php">
+            <input type="checkbox" id="Whey Protein Powder" >
+            <label for="Whey Protein Powder"> Whey Protein Powder</label><br>
+            <input type="checkbox" id="Plant-based Protein Powder" >
+            <label for="Plant-based Protein Powder"> Plant-based Protein Powder</label><br>
+            <input type="checkbox" id="Protein Bars" >
+            <label for="Protein Bars"> Protein Bars</label><br><br>
+          </form>
+
+
+          <br>
+          <button (click)="getProteinInfo()" class="btn btn primary col-lg-2 col-lg-offset-5 " type="button">Go ! </button>
+
+        </div>
+      </form>
+    </div>
+  </div><br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="panel panel-default col">
+          <div class="panel-heading"><b>Product Type</b></div>
+          <div class="panel-body">                                  <!--for each item in foodList-->
+            <div *ngFor="let food of foodList" class="list-group-item clearfix">
+              <div class="pull-left">                             <!--output food name and URL-->
+                <a target="_blank" href="{{ food?.url }}" class="list-group-item-text">
+                  <h3 class="list-group-item-heading">{{ food?.name }}</h3></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="panel panel-default col">
+              <div class="panel-heading"><b>Ingredients</b></div>
+              <div class="panel-body">
+
+                <div *ngFor="let food of foodList" class="list-group-item clearfix">
+                  <div class="pull-left">                                   <!--for each item in foodList-->
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <p>                                               <!--if ingredient index exists, output ingredient line-->
+                          <span *ngIf = "food?.ingredients[0]">{{ food?.ingredients[0].text }}</span>
+                          <span *ngIf = "food?.ingredients[1]">, {{ food?.ingredients[1].text }}</span>
+                          <span *ngIf = "food?.ingredients[2]">, {{ food?.ingredients[2].text }}</span>
+                          <span *ngIf = "food?.ingredients[3]">, {{ food?.ingredients[3].text }}</span>
+                          <span *ngIf = "food?.ingredients[4]">, {{ food?.ingredients[4].text }}</span>...</p>
+                      </div>                                        // limit 5 ingredients
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-default col">
+              <div class="panel-heading"><b>Nutritional Values</b></div>
+              <div class="panel-body">                                <!--for each item in foodList-->
+                <div *ngFor="let food of foodList" class="list-group-item clearfix">
+                  <div class="pull-left">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <p>                                           <!--output nutrition info, round numbers for easy viewing-->
+                          Calories: {{food?.nutrients.ENERC_KCAL.quantity | number:'1.0-0'}}{{food?.nutrients.ENERC_KCAL.unit}},
+                          Fat: {{food?.nutrients.FAT.quantity | number:'1.0-0'}}{{food?.nutrients.FAT.unit}},
+                          Carbs: {{food?.nutrients.CHOCDF.quantity | number:'1.0-0'}}{{food?.nutrients.CHOCDF.unit}},
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
